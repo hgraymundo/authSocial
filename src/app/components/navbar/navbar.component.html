@@ -6,16 +6,16 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-        <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        <a class="nav-link" routerLink="/dashboard" *ngIf="authManager.getAuthStatus()">Dashboard</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/profile">Profile</a>
+        <a class="nav-link" routerLink="/profile" *ngIf="authManager.getAuthStatus()">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/public" >Public</a>
+        <a class="nav-link" routerLink="/public">Public</a>
       </li>
     </ul>
-    <a class="nav-link" routerLink="/login">Log in</a>
+    <a class="nav-link" routerLink="/login" *ngIf="!authManager.getAuthStatus()">Log in</a>
     <a class="nav-link" >Log out</a>
   </div>
 </nav>
